@@ -28,59 +28,6 @@ class Graph:
         if edge in self.edges:
             self.edges.remove(edge)
 
-    def create_gexf_file(self, filename):
-        root = ET.Element("gefx")
-        if self.version is not None:
-            root.attrib['version'] = self.version
-
-        meta = ET.SubElement(root, "meta")
-        if self.creator is not None:
-            creator = ET.SubElement(meta, "creator")
-            creator.text = self.creator
-        if self.description is not None:
-            description = ET.SubElement(meta, "description")
-            description.text = self.description
-
-        graph = ET.SubElement(root, "graph")
-        if self.mode is not None:
-            graph.attrib["mode"] = self.mode
-        if self.edge_type is not None:
-            graph.attrib["defaultedgetype"] = self.edge_type
-
-        nodes = ET.SubElement(graph, "nodes")
-
-        for n in self.nodes:
-            node = ET.SubElement(nodes, "node")
-            node.attrib["id"] = n.id
-            node.attrib["label"] = n.name
-            if n.color is not None:
-                color = ET.SubElement(node, "color")
-                color.attrib["r"] = n.color.r
-                color.attrib["g"] = n.color.g
-                color.attrib["b"] = n.color.b
-            if n.position is not None:
-                position = ET.SubElement(node, "position")
-                position.attrib["x"] = n.position.x
-                position.attrib["y"] = n.position.y
-                position.attrib["z"] = n.position.z
-            if n.size is not None:
-                size = ET.SubElement(node, "size")
-                size.attrib["value"] = n.size
-            if n.shape is not None:
-                shape = ET.SubElement(node, "shape")
-                shape.attrib["value"] = n.shape
-
-        edges = ET.SubElement(graph, "edges")
-
-        for e in self.edges:
-            edge = ET.SubElement(edges, "edge")
-            edge.attrib["id"] = e.id
-            edge.attrib["source"] = e.source
-            edge.attrib["target"] = e.target
-
-        tree = ET.ElementTree(root)
-        tree.write(filename + ".gexf")
-
 
 class Node:
     def __init__(self, id, name, color, position, size, shape):
@@ -135,3 +82,60 @@ class Position:
 
     def to_string(self):
         print("X: " + str(self.x) + " | Y: " + str(self.y) + " | Z: " + str(self.z))
+
+
+###############################################
+###############################################
+
+def create_gexf_file(data, filename):
+    root = ET.Element("gefx")
+    if data.version is not None:
+        root.attrib['version'] = data.version
+
+    meta = ET.SubElement(root, "meta")
+    if data.creator is not None:
+        creator = ET.SubElement(meta, "creator")
+        creator.text = data.creator
+    if data.description is not None:
+        description = ET.SubElement(meta, "description")
+        description.text = data.description
+
+    graph = ET.SubElement(root, "graph")
+    if data.mode is not None:
+        graph.attrib["mode"] = data.mode
+    if data.edge_type is not None:
+        graph.attrib["defaultedgetype"] = data.edge_type
+
+    nodes = ET.SubElement(graph, "nodes")
+
+    for n in data.nodes:
+        node = ET.SubElement(nodes, "node")
+        node.attrib["id"] = n.id
+        node.attrib["label"] = n.name
+        if n.color is not None:
+            color = ET.SubElement(node, "color")
+            color.attrib["r"] = n.color.r
+            color.attrib["g"] = n.color.g
+            color.attrib["b"] = n.color.b
+        if n.position is not None:
+            position = ET.SubElement(node, "position")
+            position.attrib["x"] = n.position.x
+            position.attrib["y"] = n.position.y
+            position.attrib["z"] = n.position.z
+        if n.size is not None:
+            size = ET.SubElement(node, "size")
+            size.attrib["value"] = n.size
+        if n.shape is not None:
+            shape = ET.SubElement(node, "shape")
+            shape.attrib["value"] = n.shape
+
+    edges = ET.SubElement(graph, "edges")
+
+    for e in data.edges:
+        edge = ET.SubElement(edges, "edge")
+        edge.attrib["id"] = e.id
+        edge.attrib["source"] = e.source
+        edge.attrib["target"] = e.target
+
+    tree = ET.ElementTree(root)
+    tree.write(filename)
