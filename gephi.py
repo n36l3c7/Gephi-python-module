@@ -4,11 +4,11 @@ import xml.etree.ElementTree as ET
 class Graph:
 
     def __init__(self, version, creator, description, mode, edge_type):
-        self.version = version
-        self.creator = creator
-        self.description = description
-        self.mode = mode
-        self.edge_type = edge_type
+        self.version = secure_instance(self.version, version, "1.2")
+        self.creator = secure_instance(self.creator, creator, "")
+        self.description = secure_instance((self.description, description, ""))
+        self.mode = secure_instance(self.mode, mode, "static")
+        self.edge_type = secure_instance(self.edge_type, edge_type, "directed")
         self.nodes = list()
         self.edges = list()
 
@@ -31,12 +31,12 @@ class Graph:
 
 class Node:
     def __init__(self, id, name, color, position, size, shape):
-        self.id = id
-        self.name = name
-        self.color = color
-        self.position = position
-        self.size = size
-        self.shape = shape
+        self.id = secure_instance(self.id, id, "")
+        self.name = secure_instance(self.name, name, "")
+        self.color = secure_instance(self.color, color, Color("0", "0", "0"))
+        self.position = secure_instance(self.position, position, Position("0", "0", "0"))
+        self.size = secure_instance(self.size, size, "")
+        self.shape = secure_instance(self.shape, shape, "")
 
     def return_to_string(self):
         return "Id: " + str(self.id) + " | Name: " + str(self.name) + " | Color: {" + self.color.return_to_string() + "}" + " | Position :  {" + self.position.return_to_string() + "}"
@@ -47,9 +47,9 @@ class Node:
 
 class Edge:
     def __init__(self, id, source, target):
-        self.id = id
-        self.source = source
-        self.target = target
+        self.id = secure_instance(self.id, id, "")
+        self.source = secure_instance(self.source, source, "")
+        self.target = secure_instance(self.target, target, "")
 
     def return_to_string(self):
         return "Id: " + str(self.id) + " | Source: " + str(self.source) + " | Target: " + str(self.target)
@@ -60,9 +60,9 @@ class Edge:
 
 class Color:
     def __init__(self, r, g, b):
-        self.r = r
-        self.g = g
-        self.b = b
+        self.r = secure_instance(self.r, r, "0")
+        self.g = secure_instance(self.g, g, "0")
+        self.b = secure_instance(self.b, b, "0")
 
     def return_to_string(self):
         return "R: " + str(self.r) + " | G: " + str(self.g) + " | B: " + str(self.b)
@@ -73,9 +73,9 @@ class Color:
 
 class Position:
     def __init__(self, x, y, z):
-        self.x = x
-        self.y = y
-        self.z = z
+        self.x = secure_instance(self.x, x, "")
+        self.y = secure_instance(self.y, y, "")
+        self.z = secure_instance(self.z, z, "")
 
     def return_to_string(self):
         return "X: " + str(self.x) + " | Y: " + str(self.y) + " | Z: " + str(self.z)
@@ -139,3 +139,14 @@ def create_gexf_file(data, filename):
 
     tree = ET.ElementTree(root)
     tree.write(filename)
+
+
+def import_from_gefx(filename):
+    return
+
+
+def secure_instance(value_to_check, get_value, default_value):
+    if value_to_check is None:
+        return default_value
+    else:
+        return get_value
