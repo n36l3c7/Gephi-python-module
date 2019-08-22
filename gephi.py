@@ -104,6 +104,12 @@ class Edge:
         self.source = source
         self.target = target
 
+    def return_to_string(self):
+        return "Id: " + str(self.id) + " | Source: " + str(self.source) + " | Target: " + str(self.target)
+
+    def to_string(self):
+        print("Id: " + str(self.id) + " | Source: " + str(self.source) + " | Target: " + str(self.target))
+
 
 class Color:
     def __init__(self, r, g, b):
