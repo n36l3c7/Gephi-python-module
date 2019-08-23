@@ -2,7 +2,7 @@
 
 ## Index
 - [ToDo list](#todo-list)
-- Usage
+- [Usage](#usage)
 - Documentation
   - Classes
     - Graph
@@ -16,3 +16,6 @@
 - [x] ~~All classes~~
 - [x] ~~Export to .gexf file~~
 - [ ] import from .gexf file
+
+## Usage
+
