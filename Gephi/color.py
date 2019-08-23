@@ -1,8 +1,8 @@
 class Color:
     def __init__(self, r, g, b):
-        self.r = (check_value_color(r))
-        self.g = (check_value_color(g))
-        self.b = (check_value_color(b))
+        self.r = (check_instance_color(r))
+        self.g = (check_instance_color(g))
+        self.b = (check_instance_color(b))
 
     def return_to_string(self):
         return "R: " + str(self.r) + " | G: " + str(self.g) + " | B: " + str(self.b)
