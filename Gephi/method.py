@@ -53,14 +53,3 @@ def create_gexf_file(data, filename):
 
     tree = ET.ElementTree(root)
     tree.write(filename)
-
-
-def import_from_gefx(filename):
-    return
-
-
-def secure_instance(get_value, default_value):
-    if get_value is None:
-        return default_value
-    else:
-        return get_value
