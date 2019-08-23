@@ -17,6 +17,6 @@ def check_instance_color(value):
     elif str(value).isdigit() is False:
         return "0"
     elif int(value) < 0 or int(value) > 255:
-        return "01"
+        return "0"
     else:
         return value
