@@ -21,16 +21,21 @@ class Graph:
     def add_node(self, node):
         if self.node_exist(node):
             print("Node already exist\n")
+            return 0
         elif self.node_id_exist(node):
             print("Node id already exist\n")
+            return 0
         else:
             self.nodes.append(node)
+            return 1
 
     def remove_node(self, node):
         if self.node_exist(node):
             self.nodes.remove(node)
+            return 1
         else:
             print("Node doesn't exist\n")
+            return 0
 
     def node_exist(self, node):
         return any(n.return_to_string() == node.return_to_string() for n in self.nodes)
@@ -45,20 +50,27 @@ class Graph:
     def add_edge(self, edge):
         if self.edge_exist(edge):
             print("Edge already exist\n")
+            return 0
         elif self.edge_association_exist(edge):
             print("Edge source/target association already exist\n")
+            return 0
         elif not self.node_id_exist(edge.source):
             print("Doesn't exist an association between edge source and a node id\n")
+            return 0
         elif not self.node_id_exist(edge.target):
             print("Doesn't exist an association between edge target and a node id\n")
+            return 0
         else:
             self.edges.append(edge)
+            return 0
 
     def remove_edge(self, edge):
         if self.edge_exist(edge):
             self.edges.remove(edge)
+            return 1
         else:
             print("Edge doesn't exist\n")
+            return 0
 
     def edge_exist(self, edge):
         return any(e.return_to_string() == edge.return_to_string() for e in self.edges)
