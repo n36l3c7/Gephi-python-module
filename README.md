@@ -28,7 +28,7 @@ from Gephi import gephi
 #### Graph
 ##### Instance
 ```python
-Graph(version, creator, description, mode, default_esge_type)
+Graph(version, creator, description, mode, default_edge_type)
 ```
 Variables         | Type    | Nullable  | Options
 ------------------|---------|:---------:|------------------------------
@@ -36,11 +36,12 @@ Version           | String  |     ✘     | 1.1 - 1.2
 Creator           | String  |     ✔     | What you want
 Description       | String  |     ✔     | What you want
 Mode              | String  |     ✘     | static - dynamic
-default_edge_type | String  |     ✘     | directed - undirected - mutual
+Default edge type | String  |     ✘     | directed - undirected - mutual
 ___
 
 
 ##### Method
+Permit to add a node in graph node list.
 ```python
 add_node(node)
 ```
@@ -57,6 +58,7 @@ ___
 ```python
 remove_node(node)
 ```
+Permit to remove node from graph node list.
 Return: 
   - **0**: Node has not been removed
     - *Node doesn't exist*
@@ -70,6 +72,7 @@ ___
 ```python
 node_exist(node)
 ```
+Check if exist a node in graph node list.
 Return: 
   - **false**: Node already doesn't exist in graph node list
   - **true**: Node already exist in graph node list
@@ -82,6 +85,7 @@ ___
 ```python
 node_id_exist(node)
 ```
+Check if a node in graph node list has the same id.
 Return: 
   - **false**: Node id already doesn't exist in graph node list
   - **true**: Node id already exist in graph node list
@@ -94,6 +98,7 @@ ___
 ```python
 add_edge(edge)
 ```
+Permit to add an edge to graph edge list.
 Return: 
   - **0**: Edge has not been added
     - *Edge already exist*
@@ -110,6 +115,7 @@ ___
 ```python
 remove_edge(edge)
 ```
+Permit to remove an edge from graph edge list.
 Return: 
   - **0**: Edge has not been removed
     - *Edge doesn't exist*
@@ -121,11 +127,12 @@ Edge        |     ✘     | [Edge](#edge)  |
 ___
 
 ```python
-Edge_exist(edge)
+edge_exist(edge)
 ```
+Check if an edge in graph edge list exist.
 Return: 
-  - **false**: Edge already doesn't exist in graph node list
-  - **true**: Edge already exist in graph node list
+  - **false**: Edge already doesn't exist in graph edge list
+  - **true**: Edge already exist in graph edge list
   
 Variables   | Nullable  | Type           |
 ------------|:---------:|----------------|
@@ -135,9 +142,10 @@ ___
 ```python
 edge_association_exist(edge)
 ```
+Check if an edge in graph edge list has the same source/target association.
 Return: 
-  - **false**: Edge id already doesn't exist in graph node list
-  - **true**: Edge id already exist in graph node list
+  - **false**: Edge id already doesn't exist in graph edge list
+  - **true**: Edge id already exist in graph edge list
   
 Variables   | Nullable  | Type           |
 ------------|:---------:|----------------|
@@ -160,6 +168,7 @@ Shape             | Numeric |     ✔     | What you want
 ___
 
 #### Method
+Return a node info string.
 ```python
 to_string()
 ```
@@ -181,6 +190,7 @@ Weight            | Numeric |     ✔     | What you want
 ___
 
 #### Method
+return an edge info string.
 ```python
 to_string()
 ```
@@ -198,6 +208,13 @@ G                 | Numeric |     ✘     | Value from 0 to 255
 B                 | Numeric |     ✘     | Value from 0 to 255
 ___
 
+#### Method
+return a color info string.
+```python
+to_string()
+```
+___
+
 ### Position
 #### Instance
 ```python
@@ -209,8 +226,16 @@ X                 | Numeric |     ✘     | What you want
 Y                 | Numeric |     ✘     | What you want
 Z                 | Numeric |     ✘     | What you want
 ___
-## Methods
 
+#### Method
+return a position info string.
+```python
+to_string()
+```
+___
+
+## Methods
+Permit to create a .gexf file from a Graph to be import into Gephi afterwards.
 ```python
 create_gefx_file(graph, filename)
 ```
