@@ -6,11 +6,11 @@
 - [Documentation](#documentation)
   - [Classes](#classes)
     - [Graph](#graph)
-    - Node
-    - Edge
-    - Color
-    - Position
-  - Method
+    - [Node](#node)
+    - [Edge](#edge)
+    - [Color](#color)
+    - [Position](#position)
+  - [Methods](#methods)
 
 ## ToDo list
 - [x] ~~All classes~~
@@ -49,9 +49,9 @@ Return:
     - *Node already exist*
   - **1**: Node has been added
 
-Variables   | Nullable  | Type  |
-------------|:---------:|-------|
-Node        |     ✘     | Node  |
+Variables   | Nullable  | Type           |
+------------|:---------:|----------------|
+Node        |     ✘     | [Node](#node)  |
 ___
 
 ```python
@@ -62,9 +62,9 @@ Return:
     - *Node doesn't exist*
   - **1**: Node has been removed
   
-Variables   | Nullable  | Type  |
-------------|:---------:|-------|
-Node        |     ✘     | Node  |
+Variables   | Nullable  | Type           |
+------------|:---------:|----------------|
+Node        |     ✘     | [Node](#node)  |
 ___
 
 ```python
@@ -74,9 +74,9 @@ Return:
   - **false**: Node already doesn't exist in graph node list
   - **true**: Node already exist in graph node list
   
-Variables   | Nullable  | Type  |
-------------|:---------:|-------|
-Node        |     ✘     | Node  |
+Variables   | Nullable  | Type           |
+------------|:---------:|----------------|
+Node        |     ✘     | [Node](#node)  |
 ___
 
 ```python
@@ -86,9 +86,9 @@ Return:
   - **false**: Node id already doesn't exist in graph node list
   - **true**: Node id already exist in graph node list
   
-Variables   | Nullable  | Type            |
-------------|:---------:|-----------------|
-Node        |     ✘     | Node - string   |
+Variables   | Nullable  | Type                     |
+------------|:---------:|--------------------------|
+Node        |     ✘     | [Node](#node) - string   |
 ___
 
 ```python
@@ -102,9 +102,9 @@ Return:
     - *Doesn't exist an association between edge target and a node id*
   - **1**: Edge has been added
 
-Variables   | Nullable  | Type  |
-------------|:---------:|-------|
-Edge        |     ✘     | Edge  |
+Variables   | Nullable  | Type           |
+------------|:---------:|----------------|
+Edge        |     ✘     | [Edge](#edge)  |
 ___
 
 ```python
@@ -115,9 +115,9 @@ Return:
     - *Edge doesn't exist*
   - **1**: Edge has been removed
   
-Variables   | Nullable  | Type  |
-------------|:---------:|-------|
-Edge        |     ✘     | Edge  |
+Variables   | Nullable  | Type           |
+------------|:---------:|----------------|
+Edge        |     ✘     | [Edge](#edge)  |
 ___
 
 ```python
@@ -127,9 +127,9 @@ Return:
   - **false**: Edge already doesn't exist in graph node list
   - **true**: Edge already exist in graph node list
   
-Variables   | Nullable  | Type  |
-------------|:---------:|-------|
-Edge        |     ✘     | Edge  |
+Variables   | Nullable  | Type           |
+------------|:---------:|----------------|
+Edge        |     ✘     | [Edge](#edge)  |
 ___
 
 ```python
@@ -139,9 +139,9 @@ Return:
   - **false**: Edge id already doesn't exist in graph node list
   - **true**: Edge id already exist in graph node list
   
-Variables   | Nullable  | Type  |
-------------|:---------:|-------|
-Edge        |     ✘     | Edge  |
+Variables   | Nullable  | Type           |
+------------|:---------:|----------------|
+Edge        |     ✘     | [Edge](#edge)  |
 ___
 
 #### Node
@@ -185,3 +185,29 @@ ___
 to_string()
 ```
 ___
+
+### Color
+#### Instance
+```python
+Color(r, g, b)
+```
+Variables         | Type    | Nullable  | Options
+------------------|---------|:---------:|------------------
+R                 | Numeric |     ✘     | Value from 0 to 255
+G                 | Numeric |     ✘     | Value from 0 to 255
+B                 | Numeric |     ✘     | Value from 0 to 255
+___
+
+### Position
+#### Instance
+```python
+Position(x, y, z)✘
+```
+Variables         | Type    | Nullable  | Options
+------------------|---------|:---------:|------------------
+X                 | Numeric |     ✘     | What you want
+Y                 | Numeric |     ✘     | What you want
+Z                 | Numeric |     ✘     | What you want
+___
+## Methods
+
