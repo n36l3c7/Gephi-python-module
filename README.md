@@ -5,7 +5,7 @@
 - [Usage](#usage)
 - [Documentation](#documentation)
   - [Classes](#classes)
-    - Graph
+    - [Graph](#graph)
     - Node
     - Edge
     - Color
@@ -37,6 +37,8 @@ Creator           | String  | What you want
 Description       | String  | What you want
 Mode              | String  | static - dynamic
 default_edge_type | String  | directed - undirected - mutual
+___
+
 
 ##### Method
 ```python
@@ -45,6 +47,7 @@ add_node(node)
 Variables   | Type  |
 ------------|-------|
 Node        | Node  |
+___
 
 ```python
 remove_node(node)
@@ -52,3 +55,14 @@ remove_node(node)
 Variables   | Type  |
 ------------|-------|
 Node        | Node  |
+___
+
+```python
+node_exist(node)
+```
+Variables   | Type  |
+------------|-------|
+Node        | Node  |
+
+
+
