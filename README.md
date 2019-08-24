@@ -201,7 +201,7 @@ ___
 ### Position
 #### Instance
 ```python
-Position(x, y, z)✘
+Position(x, y, z)
 ```
 Variables         | Type    | Nullable  | Options
 ------------------|---------|:---------:|------------------
@@ -211,3 +211,10 @@ Z                 | Numeric |     ✘     | What you want
 ___
 ## Methods
 
+```python
+create_gefx_file(graph, filename)
+```
+Variables         | Type            | Nullable  | Options
+------------------|-----------------|:---------:|------------------
+Graph             | [Graph](#graph) |     ✘     | What you want
+filename          | String          |     ✘     | File name . extension
