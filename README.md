@@ -242,4 +242,4 @@ create_gefx_file(graph, filename)
 Variables         | Type            | Nullable  | Options
 ------------------|-----------------|:---------:|------------------
 Graph             | [Graph](#graph) |     ✘     | What you want
-filename          | String          |     ✘     | File name . extension
+filename          | String          |     ✘     | File name .gexf
