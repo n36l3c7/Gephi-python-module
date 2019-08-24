@@ -44,6 +44,11 @@ ___
 ```python
 add_node(node)
 ```
+Return: 
+  - **0**: Node has not been added
+    - *Node already exist*
+  - **1**: Node has been added
+
 Variables   | Type  |
 ------------|-------|
 Node        | Node  |
@@ -52,6 +57,11 @@ ___
 ```python
 remove_node(node)
 ```
+Return: 
+  - **0**: Node has not been removed
+    - *Node doesn't exist*
+  - **1**: Node has been removed
+  
 Variables   | Type  |
 ------------|-------|
 Node        | Node  |
@@ -60,9 +70,76 @@ ___
 ```python
 node_exist(node)
 ```
+Return: 
+  - **false**: Node already doesn't exist in graph node list
+  - **true**: Node already exist in graph node list
+  
 Variables   | Type  |
 ------------|-------|
 Node        | Node  |
+___
 
+```python
+node_id_exist(node)
+```
+Return: 
+  - **false**: Node id already doesn't exist in graph node list
+  - **true**: Node id already exist in graph node list
+  
+Variables   | Type            |
+------------|-----------------|
+Node        | Node - string   |
+___
 
+```python
+add_edge(edge)
+```
+Return: 
+  - **0**: Edge has not been added
+    - *Edge already exist*
+    - *Edge source/target association already exist*
+    - *Doesn't exist an association between edge source and a node id*
+    - *Doesn't exist an association between edge target and a node id*
+  - **1**: Edge has been added
 
+Variables   | Type  |
+------------|-------|
+Edge        | Edge  |
+___
+
+```python
+remove_edge(edge)
+```
+Return: 
+  - **0**: Edge has not been removed
+    - *Edge doesn't exist*
+  - **1**: Edge has been removed
+  
+Variables   | Type  |
+------------|-------|
+Edge        | Edge  |
+___
+
+```python
+Edge_exist(edge)
+```
+Return: 
+  - **false**: Edge already doesn't exist in graph node list
+  - **true**: Edge already exist in graph node list
+  
+Variables   | Type  |
+------------|-------|
+Edge        | Edge  |
+___
+
+```python
+edge_association_exist(edge)
+```
+Return: 
+  - **false**: Edge id already doesn't exist in graph node list
+  - **true**: Edge id already exist in graph node list
+  
+Variables   | Type  |
+------------|-------|
+Edge        | Edge  |
+___
