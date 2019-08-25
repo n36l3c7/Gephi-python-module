@@ -1,5 +1,8 @@
 # Gephi python module
 
+![Gephi image](https://pbs.twimg.com/media/D2qROQIXQAEQThH.jpg)
+
+
 ## Index
 - [ToDo list](#todo-list)
 - [Usage](#usage)
